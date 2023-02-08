@@ -1,1 +1,1 @@
-{{-- @extends('layouts.main-layout') --}}
+<h2>footer</h2>
