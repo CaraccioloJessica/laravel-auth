@@ -2,6 +2,6 @@
 
 @section('content')
     
-  <h2>CONTENT</h2>
+  <h2>LOGGED: CONTENT</h2>
 
 @endsection

@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
       <div class="container">
           <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-              <div class="logo_laravel">
+              <div class="text-danger">
                   <h1>Logo</h1>
               </div>
               {{-- config('app.name', 'Laravel') --}}
@@ -17,6 +17,7 @@
               <ul class="navbar-nav me-auto">
                   <li class="nav-item">
                       <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                      <a class="nav-link" href="{{url('/') }}">{{ __('Logged') }}</a>
                   </li>
               </ul>
 

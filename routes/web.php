@@ -7,6 +7,9 @@ use App\Http\Controllers\MainController;
 // home
 Route::get('/', [MainController::class, 'home']);
 
+// logged
+Route::get('/logged', [MainController::class, 'logged'])->middleware(['auth', 'verified'])->name('logged');
+
 Route::get('/dashboard', function () {
   return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

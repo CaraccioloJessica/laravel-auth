@@ -10,4 +10,9 @@ class MainController extends Controller
   {
     return view('home');
   }
+
+  public function logged()
+  {
+    return view('logged');
+  }
 }
