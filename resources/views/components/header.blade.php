@@ -16,8 +16,8 @@
               <!-- Left Side Of Navbar -->
               <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                      <a class="nav-link" href="{{url('/') }}">{{ __('home') }}</a>
-                      <a class="nav-link" href="{{url('/') }}">{{ __('logged') }}</a>
+                      <a class="nav-link" href="{{url('/') }}">Home</a>
+                      <a class="nav-link" href="{{url('/logged') }}">Logged</a>
                   </li>
               </ul>
 
