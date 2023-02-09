@@ -2,6 +2,7 @@
 
 @section('content')
     
-  <h2>LOGGED: WELCOME!</h2>
+  <h1>Pannello di controllo</h1>
+  <a href="{{ route('project.create') }}">CREA NUOVO PROGETTO</a>
 
 @endsection
