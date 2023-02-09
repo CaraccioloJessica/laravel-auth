@@ -3,7 +3,7 @@
       <div class="container">
           <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
               <div class="text-danger">
-                  <h1>Logo</h1>
+                  <h1>Jessica Caracciolo</h1>
               </div>
               {{-- config('app.name', 'Laravel') --}}
           </a>
@@ -15,7 +15,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <!-- Left Side Of Navbar -->
               <ul class="navbar-nav me-auto">
-                  <li class="nav-item">
+                  <li class="nav-item d-flex">
                       <a class="nav-link" href="{{url('/') }}">Home</a>
                       <a class="nav-link" href="{{url('/private') }}">Private</a>
                   </li>
