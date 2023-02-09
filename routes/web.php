@@ -16,6 +16,11 @@ Route::middleware(['auth', 'verified'])
     Route::get('/', [MainController::class, 'private']);
   });
 
+// show (not private)
+Route::get('/project/show/{project}', [MainController::class, 'projectShow'])
+  ->name('project.show');
+
+
 
 Route::get('/dashboard', function () {
   return view('dashboard');

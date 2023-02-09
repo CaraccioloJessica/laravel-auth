@@ -6,7 +6,11 @@
 <div class="container d-flex flex-wrap">
     @foreach ($projects as $project)
         <div class="card mb-3 mx-2" style="width: 16rem;">
-          <h4 class="mb-2">{{ $project -> name }}</h4>
+          {{-- link per lo show del singolo progetto --}}
+          <a href="{{ route('project.show', $project) }}">
+            <h4 class="mb-2">{{ $project -> name }}</h4>
+          </a>
+
           <div class="mb-2">{{ $project -> description }}</div>
           <img  class="mb-2" src="{{ $project -> main_image }}" alt="">
           <div class="mb-2">{{ $project -> release_date }}</div>

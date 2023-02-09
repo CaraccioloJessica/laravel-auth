@@ -13,8 +13,15 @@ class MainController extends Controller
     return view('home', compact('projects'));
   }
 
+  // solo admin
   public function private ()
   {
     return view('private');
+  }
+
+  // show
+  public function projectShow(Project $project)
+  {
+    return view('projectShow', compact('project'));
   }
 }
