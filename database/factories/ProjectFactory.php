@@ -20,7 +20,7 @@ class ProjectFactory extends Factory
       'name' => fake()->words(3, true),
       'description' => fake()->paragraph(),
       'main_image' => fake()->url(),
-      'release_date' => fake()->dateTime(),
+      'release_date' => fake()->dateTimeInInterval('-6months', '+6months'),
       'repo_link' => fake()->url(),
     ];
   }
