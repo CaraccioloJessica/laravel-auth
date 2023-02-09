@@ -2,7 +2,9 @@
 
 @section('content')
     
-  <h1>Pannello di controllo</h1>
-  <a href="{{ route('project.create') }}">CREA NUOVO PROGETTO</a>
+  <h1 class="text-center">Pannello di controllo</h1>
+  <div class="container">
+    <a href="{{ route('project.create') }}">CREA NUOVO PROGETTO</a>
+  </div>
 
 @endsection
