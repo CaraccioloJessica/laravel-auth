@@ -1,1 +1,1 @@
-<h2>footer</h2>
+<h2 class="text-center">footer</h2>
