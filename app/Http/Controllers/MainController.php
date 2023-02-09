@@ -11,8 +11,8 @@ class MainController extends Controller
     return view('home');
   }
 
-  public function logged()
+  public function private ()
   {
-    return view('logged');
+    return view('private');
   }
 }

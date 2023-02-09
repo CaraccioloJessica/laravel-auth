@@ -17,7 +17,7 @@
               <ul class="navbar-nav me-auto">
                   <li class="nav-item">
                       <a class="nav-link" href="{{url('/') }}">Home</a>
-                      <a class="nav-link" href="{{url('/logged') }}">Logged</a>
+                      <a class="nav-link" href="{{url('/private') }}">Private</a>
                   </li>
               </ul>
 
