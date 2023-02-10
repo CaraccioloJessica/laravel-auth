@@ -12,7 +12,7 @@
           </a>
 
           <div>{{ $project -> description }}</div>
-          <img  src="{{ $project -> main_image }}" alt="">
+          <img src="{{ asset('storage/' . $project -> main_image) }}" alt="">
           <div>{{ $project -> release_date }}</div>
           <div>{{ $project -> repo_link }}</div>
         </div>
