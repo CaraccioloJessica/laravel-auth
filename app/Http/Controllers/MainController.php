@@ -17,7 +17,16 @@ class MainController extends Controller
   // solo admin
   public function private ()
   {
-    return view('private');
+    $projects = Project::orderBy('created_at', 'DESC')->get();
+    return view('private', compact('projects'));
+  }
+
+  // delete
+  public function projectDelete(Project $project)
+  {
+    $project->delete();
+
+    return redirect()->route('home');
   }
 
   // show

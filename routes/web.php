@@ -10,7 +10,7 @@ Route::get('/', [MainController::class, 'home'])->name('home');
 Route::get('/project/show/{project}', [MainController::class, 'projectShow'])
   ->name('project.show');
 
-// logged (admin)
+// private (admin)
 Route::middleware(['auth', 'verified'])
   ->name('private.')
   ->prefix('private')
@@ -23,6 +23,9 @@ Route::middleware(['auth', 'verified'])
 
     Route::post('/project/create', [MainController::class, 'projectStore'])
       ->name('project.store');
+
+    Route::get('/project/delete/{project}', [MainController::class, 'projectDelete'])
+      ->name('project.delete');
   });
 
 Route::get('/dashboard', function () {
