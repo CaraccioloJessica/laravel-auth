@@ -50,7 +50,7 @@ class MainController extends Controller
     $data = $request->validate([
       'name' => 'unique:projects|string|max:64',
       'description' => 'nullable|string|max:255',
-      'main_image' => 'unique:pprojects|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+      'main_image' => 'unique:projects|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
       'release_date' => 'date',
       'repo_link' => 'unique:projects|string',
     ]);
