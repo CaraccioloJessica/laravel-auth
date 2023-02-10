@@ -6,29 +6,24 @@ use App\Http\Controllers\MainController;
 
 // home
 Route::get('/', [MainController::class, 'home'])->name('home');
+// show (not private)
+Route::get('/project/show/{project}', [MainController::class, 'projectShow'])
+  ->name('project.show');
 
-// logged
+// logged (admin)
 Route::middleware(['auth', 'verified'])
   ->name('private.')
   ->prefix('private')
   ->group(function () {
 
     Route::get('/', [MainController::class, 'private']);
+
+    Route::get('/project/create', [MainController::class, 'projectCreate'])
+      ->name('project.create');
+
+    Route::post('/project/create', [MainController::class, 'projectStore'])
+      ->name('project.store');
   });
-
-// show (not private)
-Route::get('/project/show/{project}', [MainController::class, 'projectShow'])
-  ->name('project.show');
-
-// create new project
-Route::get('/project/create', [MainController::class, 'projectCreate'])
-  ->name('project.create');
-
-// store proj
-Route::post('/project/store', [MainController::class, 'projectStore'])
-  ->name('project.store');
-
-
 
 Route::get('/dashboard', function () {
   return view('dashboard');
