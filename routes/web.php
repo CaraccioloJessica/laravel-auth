@@ -18,12 +18,15 @@ Route::middleware(['auth', 'verified'])
 
     Route::get('/', [MainController::class, 'private']);
 
+    // create
     Route::get('/project/create', [MainController::class, 'projectCreate'])
       ->name('project.create');
 
+    //store 
     Route::post('/project/create', [MainController::class, 'projectStore'])
       ->name('project.store');
 
+    // delete
     Route::get('/project/delete/{project}', [MainController::class, 'projectDelete'])
       ->name('project.delete');
   });

@@ -7,6 +7,7 @@ use App\Models\Project;
 
 class MainController extends Controller
 {
+  // home
   public function home()
   {
     $projects = Project::orderBy('created_at', 'DESC')->get();
