@@ -14,7 +14,7 @@
           <div>{{ $project -> description }}</div>
           <img src="{{ asset('storage/' . $project -> main_image) }}" alt="">
           <div>{{ $project -> release_date }}</div>
-          <div>{{ $project -> repo_link }}</div>
+          <div><a href="{{ $project -> repo_link }}">Repository link</a></div>
         </div>
     @endforeach
 </div>

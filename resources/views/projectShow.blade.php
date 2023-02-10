@@ -6,7 +6,7 @@
       <div class="mb-3">{{ $project -> description }}</div>
       <img class="mb-3" src="{{ asset('storage/' . $project -> main_image) }}" alt="">
       <div class="mb-3">{{ $project -> release_date }}</div>
-      <div class="mb-3">{{ $project -> repo_link }}</div>
+      <div class="mb-3"><a href="{{ $project -> repo_link }}">Repository link</a></div>
   </div>
 
 @endsection
