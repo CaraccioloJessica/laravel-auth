@@ -34,7 +34,7 @@
 
     {{-- EDIT/UPDATE --}}
     <h2 class="mb-3 text-primary">Aggiorna un progetto</h2>
-    <form method="post" action="{{ route('private.project.update', $project) }}" enctype="multipart/form-data">
+    <form method="post" action="{{ route('private.project.update', $project ) }}" enctype="multipart/form-data">
       @csrf
       
       <label for="name" class="mt-2">Name</label>

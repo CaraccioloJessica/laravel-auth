@@ -24,7 +24,7 @@ class MainController extends Controller
   }
 
   // delete
-  public function projectDelete(Project $project)
+  public function delete(Project $project)
   {
     $project->delete();
 
@@ -32,19 +32,19 @@ class MainController extends Controller
   }
 
   // show
-  public function projectShow(Project $project)
+  public function show(Project $project)
   {
     return view('projectShow', compact('project'));
   }
 
   // create new proj
-  public function projectCreate()
+  public function create()
   {
-    return view('projectCreate');
+    return view('project.create');
   }
 
   // store
-  public function projectStore(Request $request)
+  public function store(Request $request)
   {
 
     $data = $request->validate([
@@ -63,13 +63,14 @@ class MainController extends Controller
     return redirect()->route('home', $project);
   }
 
-  // edit/update
-  public function projectEdit(Project $project)
+  // edit
+  public function edit(Project $project)
   {
-    return view('projectEdit', compact('project'));
+    return view('project.edit', compact('project'));
   }
 
-  public function projectUpdate(Request $request, Project $project)
+  // update
+  public function update(Request $request, Project $project)
   {
     $data = $request->validate([
       'name' => 'unique:projects|string|max:64,' . $project->id,
