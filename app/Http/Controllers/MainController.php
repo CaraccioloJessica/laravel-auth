@@ -23,14 +23,6 @@ class MainController extends Controller
     return view('private', compact('projects'));
   }
 
-  // delete
-  public function delete(Project $project)
-  {
-    $project->delete();
-
-    return redirect()->route('home');
-  }
-
   // show
   public function show(Project $project)
   {
@@ -40,7 +32,7 @@ class MainController extends Controller
   // create new proj
   public function create()
   {
-    return view('project.create');
+    return view('create');
   }
 
   // store
@@ -66,7 +58,7 @@ class MainController extends Controller
   // edit
   public function edit(Project $project)
   {
-    return view('project.edit', compact('project'));
+    return view('edit', compact('project'));
   }
 
   // update
@@ -76,7 +68,7 @@ class MainController extends Controller
     $data = $request->validate([
       'name' => 'required|string|min:3|max:64|unique:projects,name,' . $project->id,
       'description' => 'nullable|string',
-      'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+      'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048,' . $project->id,
       'release_date' => 'required|date|before:today',
       'repo_link' => 'required|string|unique:projects,repo_link,' . $project->id,
     ]);
@@ -88,5 +80,13 @@ class MainController extends Controller
     $project->save();
 
     return redirect()->route('home', $project);
+  }
+
+  // delete
+  public function delete(Project $project)
+  {
+    $project->delete();
+
+    return redirect()->route('home');
   }
 }

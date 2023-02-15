@@ -7,7 +7,7 @@
     @foreach ($projects as $project)
         <div class="card m-2" style="width: 16rem;">
           {{-- link per lo show del singolo progetto --}}
-          <a href="{{ route('project.show', $project) }}">
+          <a href="{{ route('show', $project) }}">
             <h4>{{ $project -> name }}</h4>
           </a>
 

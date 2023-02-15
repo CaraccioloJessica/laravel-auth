@@ -7,6 +7,13 @@
       <img class="mb-3" src="{{ asset('storage/' . $project -> main_image) }}" alt="">
       <div class="mb-3">{{ $project -> release_date }}</div>
       <div class="mb-3"><a href="{{ $project -> repo_link }}">Repository link</a></div>
+      @auth
+      <hr>
+      <a href="{{ route('private.edit', $project) }}" class="text-danger">MODIFICA</a> 
+      - 
+      <a href="{{ route('private.delete', $project) }}" class="text-danger">CANCELLA</a>
+      <hr> 
+      @endauth
   </div>
 
 @endsection

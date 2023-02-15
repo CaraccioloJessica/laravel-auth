@@ -7,8 +7,8 @@ use App\Http\Controllers\MainController;
 // home
 Route::get('/', [MainController::class, 'home'])->name('home');
 // show (not private)
-Route::get('project/show/{project}', [MainController::class, 'show'])
-  ->name('project.show');
+Route::get('/show/{project}', [MainController::class, 'show'])
+  ->name('show');
 
 // private (admin)
 Route::middleware(['auth', 'verified'])
@@ -19,24 +19,24 @@ Route::middleware(['auth', 'verified'])
     Route::get('/', [MainController::class, 'private'])->name('private');
 
     // create
-    Route::get('/project/create', [MainController::class, 'create'])
-      ->name('project.create');
+    Route::get('/create', [MainController::class, 'create'])
+      ->name('create');
 
     //store 
-    Route::post('/project/create', [MainController::class, 'store'])
-      ->name('project.store');
+    Route::post('/create', [MainController::class, 'store'])
+      ->name('store');
 
     //edit 
-    Route::get('/project/edit/{project}', [MainController::class, 'edit'])
-      ->name('project.edit');
+    Route::get('/edit/{project}', [MainController::class, 'edit'])
+      ->name('edit');
 
     // update
-    Route::post('/project/edit/{project}', [MainController::class, 'update'])
-      ->name('project.update');
+    Route::post('/edit/{project}', [MainController::class, 'update'])
+      ->name('update');
 
     // delete
-    Route::get('/project/delete/{project}', [MainController::class, 'delete'])
-      ->name('project.delete');
+    Route::get('/delete/{project}', [MainController::class, 'delete'])
+      ->name('delete');
   });
 
 Route::get('/dashboard', function () {
