@@ -58,16 +58,33 @@ class MainController extends Controller
     $img_path = Storage::put('uploads', $data['main_image']);
     $data['main_image'] = $img_path;
 
-    $project = new Project();
+    $project = Project::create($data);
 
-    $project->name = $data['name'];
-    $project->description = $data['description'];
-    $project->main_image = $data['main_image'];
-    $project->release_date = $data['release_date'];
-    $project->repo_link = $data['repo_link'];
+    return redirect()->route('home', $project);
+  }
 
+  // edit/update
+  public function projectEdit(Project $project)
+  {
+    return view('projectEdit', compact('project'));
+  }
+
+  public function projectUpdate(Request $request, Project $project)
+  {
+    $data = $request->validate([
+      'name' => 'unique:projects|string|max:64,' . $project->id,
+      'description' => 'nullable|string|max:255',
+      'main_image' => 'unique:projects|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+      'release_date' => 'date',
+      'repo_link' => 'unique:projects|string,' . $project->id,
+    ]);
+
+    $img_path = Storage::put('uploads', $data['main_image']);
+    $data['main_image'] = $img_path;
+
+    $project->update($data);
     $project->save();
 
-    return redirect()->route('home');
+    return redirect()->route('home', $project);
   }
 }
