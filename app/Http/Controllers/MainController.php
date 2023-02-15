@@ -48,11 +48,11 @@ class MainController extends Controller
   {
 
     $data = $request->validate([
-      'name' => 'unique:projects|string|max:64',
-      'description' => 'nullable|string|max:255',
-      'main_image' => 'unique:projects|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-      'release_date' => 'date',
-      'repo_link' => 'unique:projects|string',
+      'name' => 'required|string|min:3|max:64|unique:projects,name',
+      'description' => 'nullable|string',
+      'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+      'release_date' => 'required|date|before:today',
+      'repo_link' => 'required|string|unique:projects,repo_link',
     ]);
 
     $img_path = Storage::put('uploads', $data['main_image']);
@@ -72,12 +72,13 @@ class MainController extends Controller
   // update
   public function update(Request $request, Project $project)
   {
+
     $data = $request->validate([
-      'name' => 'unique:projects|string|max:64,' . $project->id,
-      'description' => 'nullable|string|max:255',
-      'main_image' => 'unique:projects|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-      'release_date' => 'date',
-      'repo_link' => 'unique:projects|string,' . $project->id,
+      'name' => 'required|string|min:3|max:64|unique:projects,name,' . $project->id,
+      'description' => 'nullable|string',
+      'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+      'release_date' => 'required|date|before:today',
+      'repo_link' => 'required|string|unique:projects,repo_link,' . $project->id,
     ]);
 
     $img_path = Storage::put('uploads', $data['main_image']);

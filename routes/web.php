@@ -26,7 +26,7 @@ Route::middleware(['auth', 'verified'])
     Route::post('/project/create', [MainController::class, 'store'])
       ->name('project.store');
 
-    // edit
+    //edit 
     Route::get('/project/edit/{project}', [MainController::class, 'edit'])
       ->name('project.edit');
 

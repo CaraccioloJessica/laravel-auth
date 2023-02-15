@@ -17,11 +17,13 @@ class ProjectFactory extends Factory
   public function definition()
   {
     return [
-      'name' => fake()->words(3, true),
-      'description' => fake()->paragraph(),
-      // 'main_image' => fake()->imageUrl(360, 360, 'animals', true),
-      'release_date' => fake()->dateTimeInInterval('-6months', '+6months'),
-      'repo_link' => fake()->url(),
+      'name' => fake()->unique()->words(rand(1, 5), true),
+      'description' => fake()->boolean()
+      ? fake()->paragraph()
+      : null,
+      // 'main_image' => null,
+      'release_date' => fake()->dateTimeBetween('-6 month', 'now'),
+      'repo_link' => fake()->unique()->url(),
     ];
   }
 }

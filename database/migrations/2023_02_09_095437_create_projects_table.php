@@ -16,7 +16,7 @@ return new class extends Migration {
       $table->id();
       $table->string('name', 64)->unique();
       $table->text('description')->nullable();
-      $table->string('main_image')->unique()->default('collaborativo .png');
+      $table->string('main_image')->default('collaborativo .png');
       $table->date('release_date');
       $table->string('repo_link')->unique();
       $table->timestamps();
